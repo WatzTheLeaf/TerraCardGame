@@ -17,7 +17,8 @@ public:
 	// Sets default values for this actor's properties
 	ATrcgTileManager();
 
-	virtual void BeginPlay() override;
+	UFUNCTION(BlueprintCallable, Category = "TRCG")
+	void GenerateGrid() const;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int GridXSize = 10;

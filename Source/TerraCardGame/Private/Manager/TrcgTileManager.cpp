@@ -12,10 +12,8 @@ ATrcgTileManager::ATrcgTileManager()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void ATrcgTileManager::BeginPlay()
+void ATrcgTileManager::GenerateGrid() const
 {
-	Super::BeginPlay();
-
 	if (IsValid(TileClass))
 	{
 		for (int i = 0; i < GridXSize; ++i)
