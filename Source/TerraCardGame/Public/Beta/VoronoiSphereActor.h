@@ -4,7 +4,7 @@
 #include "General/TrcgActor.h"
 #include "VoronoiSphereActor.generated.h"
 
-class AVoronoiTestCellActor;
+class AVoronoiCellActor;
 
 UCLASS(Blueprintable)
 class TERRACARDGAME_API AVoronoiSphereActor : public ATrcgActor
@@ -31,5 +31,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "TRCG")
 	int32 Seed = 0;
-	
+
+	UPROPERTY(EditAnywhere, Category = "TRCG")
+	TArray<AVoronoiCellActor*> Cells;
 };
