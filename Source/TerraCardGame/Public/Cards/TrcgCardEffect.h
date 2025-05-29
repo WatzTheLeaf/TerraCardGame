@@ -6,6 +6,7 @@
 #include "General/TrcgObject.h"
 #include "TrcgCardEffect.generated.h"
 
+class ATrcgTile;
 /**
  * 
  */
@@ -17,5 +18,5 @@ class TERRACARDGAME_API UTrcgCardEffect : public UTrcgObject
 public:
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "TRCG")
-	void StartEffect();
+	void StartEffect(int OnTile);
 };

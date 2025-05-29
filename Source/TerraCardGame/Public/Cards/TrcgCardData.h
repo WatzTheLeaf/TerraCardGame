@@ -25,5 +25,5 @@ public:
 	ECardType CardType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UTrcgCardEffect* CardEffect;
+	TSubclassOf<UTrcgCardEffect> CardEffect;
 };

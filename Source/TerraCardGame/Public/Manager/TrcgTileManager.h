@@ -18,7 +18,13 @@ public:
 	ATrcgTileManager();
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
-	void GenerateGrid() const;
+	void GenerateGrid();
+
+	UFUNCTION(BlueprintCallable, Category = "TRCG")
+	ATrcgTile* GetTileAtIndex(const int32 Index) const;
+
+	UFUNCTION(BlueprintCallable, Category = "TRCG")
+	TArray<ATrcgTile*> GetNeighbourTiles(const int32 Index);
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int GridXSize = 10;
