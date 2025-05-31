@@ -16,8 +16,10 @@ class TERRACARDGAME_API ATrcgPlanetStatsManager : public ATrcgActor
 public:
 	// Sets default values for this actor's properties
 	ATrcgPlanetStatsManager();
-	
-public:
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="TRCG")
 	TArray<UTrcgPlanetStat*> Stats;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="TRCG")
+	TArray<UTrcgPlanetStat*> Objectives;
 };
