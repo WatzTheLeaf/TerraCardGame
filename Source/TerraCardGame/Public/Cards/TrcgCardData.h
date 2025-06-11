@@ -1,8 +1,9 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "Engine/DataAsset.h"
 #include "Enums/ECardType.h"
 #include "TrcgCardData.generated.h"
@@ -22,8 +23,17 @@ public:
 	FText CardName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FText CardDesc;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	ECardType CardType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TSubclassOf<UTrcgCardEffect> CardEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FGameplayTagContainer Tags;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UMaterialInstance* Material;
 };
