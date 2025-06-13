@@ -9,6 +9,7 @@
 class UTrcgCardData;
 class ATrcgPlanetStatsManager;
 class ATrcgTileManager;
+
 /**
  * 
  */
@@ -26,4 +27,17 @@ public:
 
 	UPROPERTY(Category = "TRCG", BlueprintReadOnly, EditDefaultsOnly)
 	TArray<UTrcgCardData*> CardData;
+
+	UPROPERTY(Category = "TRCG", BlueprintReadWrite)
+	TMap<UTrcgCardData*, int> GlobalDeck;
+
+	UPROPERTY(Category = "TRCG", BlueprintReadWrite, EditDefaultsOnly)
+	int GlobalDeckMaxSize;
+
+	UFUNCTION(BlueprintCallable)
+	int GetGlobalDeckSize();
+
+	UFUNCTION(BlueprintPure)
+	bool IsDeckFull();
+	
 };
