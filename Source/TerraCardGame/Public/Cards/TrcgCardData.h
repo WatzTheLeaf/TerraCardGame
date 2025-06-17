@@ -36,4 +36,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UMaterialInstance* Material;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FLinearColor Color = FLinearColor::White;
 };
