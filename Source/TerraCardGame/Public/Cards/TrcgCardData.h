@@ -8,6 +8,7 @@
 #include "Enums/ECardType.h"
 #include "TrcgCardData.generated.h"
 
+class USlateBrushAsset;
 class UTrcgCardEffect;
 /**
  * 
@@ -39,4 +40,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FLinearColor Color = FLinearColor::White;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FSlateBrush Aspect = FSlateBrush();
 };
