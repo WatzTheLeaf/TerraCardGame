@@ -6,6 +6,7 @@
 #include "General/TrcgActor.h"
 #include "TrcgTileManager.generated.h"
 
+struct FGameplayTag;
 class ATrcgTile;
 
 UCLASS(Blueprintable)
@@ -37,4 +38,7 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<ATrcgTile> TileClass;
+
+	UFUNCTION(BlueprintPure, Category = "TRCG")
+	bool HasNeighbourTilesWithTileTag(const int32 Index, const FGameplayTag Tag);
 };

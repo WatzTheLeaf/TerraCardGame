@@ -3,6 +3,9 @@
 
 #include "World/TrcgTile.h"
 
+#include "General/TrcgGameInstance.h"
+#include "Manager/TrcgTileManager.h"
+
 
 // Sets default values
 ATrcgTile::ATrcgTile()
@@ -11,4 +14,3 @@ ATrcgTile::ATrcgTile()
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Tile Mesh"));
 	Mesh->SetupAttachment(RootComponent);
 }
-

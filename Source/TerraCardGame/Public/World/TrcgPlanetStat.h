@@ -21,4 +21,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TRCG", meta = (ClampMin = 0, ClampMax = 20, UIMin = 0, UIMax = 20, ExposeOnSpawn))
 	int Value = 0;
+
+	UFUNCTION(BlueprintCallable, Category = "TRCG")
+	void ApplyStatChange(const int Change);
 };

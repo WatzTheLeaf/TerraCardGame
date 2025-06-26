@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "General/TrcgActor.h"
+#include "World/TrcgPlanetStat.h"
 #include "TrcgPlanetStatsManager.generated.h"
 
 class UTrcgPlanetStat;
@@ -22,4 +23,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="TRCG")
 	TArray<UTrcgPlanetStat*> Objectives;
+
+	UFUNCTION(BlueprintPure, Category="TRCG")
+	UTrcgPlanetStat* GetStatFromClass(const TSubclassOf<UTrcgPlanetStat> Class);
 };

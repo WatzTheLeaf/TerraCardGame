@@ -78,3 +78,12 @@ TArray<ATrcgTile*> ATrcgTileManager::GetNeighbourTiles(const int32 Index)
 
 	return Neighbours;
 }
+
+bool ATrcgTileManager::HasNeighbourTilesWithTileTag(const int32 Index, const FGameplayTag Tag)
+{
+	for (const ATrcgTile* Tile : GetNeighbourTiles(Index))
+	{
+		if (Tile->TileTags.HasTagExact(Tag)) return true;
+	}
+	return false;
+}

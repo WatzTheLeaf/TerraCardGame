@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "General/TrcgActor.h"
 #include "TrcgTile.generated.h"
 
@@ -19,4 +20,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "TRCG")
 	FIntPoint Coords = {-1,-1};
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "TRCG")
+	FGameplayTagContainer TileTags;
 };
