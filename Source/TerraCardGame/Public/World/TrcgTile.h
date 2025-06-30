@@ -18,6 +18,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TRCG")
 	UStaticMeshComponent* Mesh;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TRCG")
+	USceneComponent* Scene;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "TRCG")
 	FIntPoint Coords = {-1,-1};
 

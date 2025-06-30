@@ -27,10 +27,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
 	TArray<ATrcgTile*> GetNeighbourTiles(const int32 Index);
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (ExposeOnSpawn))
 	int GridXSize = 10;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (ExposeOnSpawn))
 	int GridYSize = 5;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

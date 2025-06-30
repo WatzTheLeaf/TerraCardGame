@@ -3,14 +3,12 @@
 
 #include "World/TrcgTile.h"
 
-#include "General/TrcgGameInstance.h"
-#include "Manager/TrcgTileManager.h"
-
-
 // Sets default values
 ATrcgTile::ATrcgTile()
 {
 	PrimaryActorTick.bCanEverTick = false;
+	Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Tile Mesh"));
+	RootComponent = Scene;
 	Mesh->SetupAttachment(RootComponent);
 }
