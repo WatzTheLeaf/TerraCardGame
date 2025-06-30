@@ -23,7 +23,7 @@ public:
 	void StartEffect(int OnTile);
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
-	void ApplyBiomeInteraction(UTrcgBiomeInteractionData* Data, const int OnTile);
+	void ApplyBiomeInteraction(UTrcgBiomeInteractionData* Data, int OnTile);
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
 	void ApplyBiomeInteractionWithRef(UTrcgBiomeInteractionData* Data, ATrcgTile* Tile);

@@ -12,7 +12,7 @@ ATrcgTileManager::ATrcgTileManager()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void ATrcgTileManager::GenerateGrid()
+void ATrcgTileManager::GenerateGrid(TSet<FGameplayTag> DefaultTags)
 {
 	if (IsValid(TileClass))
 	{
@@ -28,6 +28,10 @@ void ATrcgTileManager::GenerateGrid()
 				ATrcgTile* Tile = static_cast<ATrcgTile*>(GetWorld()->SpawnActor(TileClass));
 				Tile->SetActorLocation(Location);
 				Tile->Coords = {i, j};
+				for (FGameplayTag Tag : DefaultTags)
+				{
+					Tile->TileTags.AddTag(Tag);
+				}
 				Tiles.Add(Tile);
 			}
 		}
@@ -86,4 +90,13 @@ bool ATrcgTileManager::HasNeighbourTilesWithTileTag(const int32 Index, const FGa
 		if (Tile->TileTags.HasTagExact(Tag)) return true;
 	}
 	return false;
+}
+
+bool ATrcgTileManager::AllHaveTileTag(const FGameplayTag Tag)
+{
+	for (const ATrcgTile* Tile : Tiles)
+	{
+		if (!Tile->TileTags.HasTagExact(Tag)) return false;
+	}
+	return true;
 }

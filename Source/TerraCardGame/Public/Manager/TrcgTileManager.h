@@ -19,7 +19,7 @@ public:
 	ATrcgTileManager();
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
-	void GenerateGrid();
+	void GenerateGrid(TSet<FGameplayTag> DefaultTags);
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
 	ATrcgTile* GetTileAtIndex(const int32 Index) const;
@@ -41,4 +41,7 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "TRCG")
 	bool HasNeighbourTilesWithTileTag(const int32 Index, const FGameplayTag Tag);
+
+	UFUNCTION(BlueprintPure, Category = "TRCG")
+	bool AllHaveTileTag(const FGameplayTag Tag);
 };

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "General/TrcgObject.h"
+#include "Enums/EStatCheckType.h"
 #include "TrcgPlanetStat.generated.h"
 
 /**
@@ -21,6 +22,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TRCG", meta = (ClampMin = 0, ClampMax = 20, UIMin = 0, UIMax = 20, ExposeOnSpawn))
 	int Value = 0;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "TRCG")
+	EStatCheckType CheckRule = EStatCheckType::EQUALTO;
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
 	void ApplyStatChange(const int Change);
