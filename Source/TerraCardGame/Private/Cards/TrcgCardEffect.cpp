@@ -9,6 +9,16 @@
 #include "World/TrcgBiomeInteractionData.h"
 #include "World/TrcgTile.h"
 
+TMap<TSubclassOf<UTrcgPlanetStat>, int> UTrcgCardEffect::PreviewEffect_Implementation(int OnTile)
+{
+	return TMap<TSubclassOf<UTrcgPlanetStat>, int>();
+}
+
+TMap<TSubclassOf<UTrcgPlanetStat>, int> UTrcgCardEffect::StatChangesFromData(UTrcgBiomeInteractionData* Data)
+{
+	return Data->StatChanges;
+}
+
 void UTrcgCardEffect::ApplyBiomeInteraction(UTrcgBiomeInteractionData* Data, const int OnTile)
 {
 	for (TTuple<TSubclassOf<UTrcgPlanetStat>, int32> const Stat : Data->StatChanges)

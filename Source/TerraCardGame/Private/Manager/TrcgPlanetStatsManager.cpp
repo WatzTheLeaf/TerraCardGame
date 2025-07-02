@@ -20,3 +20,8 @@ UTrcgPlanetStat* ATrcgPlanetStatsManager::GetStatFromClass(const TSubclassOf<UTr
 	return nullptr;
 }
 
+bool ATrcgPlanetStatsManager::HasActivePreview() const
+{
+	return !Preview.IsEmpty();
+}
+

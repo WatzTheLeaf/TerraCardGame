@@ -24,6 +24,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="TRCG")
 	TArray<UTrcgPlanetStat*> Objectives;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="TRCG")
+	TMap<TSubclassOf<UTrcgPlanetStat>, int> Preview;
+
 	UFUNCTION(BlueprintPure, Category="TRCG")
 	UTrcgPlanetStat* GetStatFromClass(const TSubclassOf<UTrcgPlanetStat> Class);
+
+	UFUNCTION(BlueprintPure, Category="TRCG")
+	bool HasActivePreview() const;
 };

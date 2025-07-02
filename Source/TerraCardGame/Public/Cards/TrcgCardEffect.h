@@ -6,6 +6,7 @@
 #include "General/TrcgObject.h"
 #include "TrcgCardEffect.generated.h"
 
+class UTrcgPlanetStat;
 struct FGameplayTag;
 class UTrcgBiomeInteractionData;
 class ATrcgTile;
@@ -21,6 +22,12 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "TRCG")
 	void StartEffect(int OnTile);
+	
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "TRCG")
+	TMap<TSubclassOf<UTrcgPlanetStat>, int> PreviewEffect(int OnTile);
+
+	UFUNCTION(BlueprintCallable, Category = "TRCG")
+	TMap<TSubclassOf<UTrcgPlanetStat>, int> StatChangesFromData(UTrcgBiomeInteractionData* Data);
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
 	void ApplyBiomeInteraction(UTrcgBiomeInteractionData* Data, int OnTile);
