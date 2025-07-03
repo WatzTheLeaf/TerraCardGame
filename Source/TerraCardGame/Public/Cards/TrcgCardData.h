@@ -23,7 +23,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FText CardName;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (MultiLine = "True"))
 	FText CardDesc;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
