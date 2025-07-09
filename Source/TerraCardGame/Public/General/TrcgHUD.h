@@ -24,6 +24,6 @@ class TERRACARDGAME_API ATrcgHUD : public AHUD
 
 public:
 	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "TRCG")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "TRCG")
 	TArray<UTrcgUserWidget*> ActiveWidgets;
 };
