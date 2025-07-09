@@ -20,7 +20,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "TRCG")
 	FText Name = FText::GetEmpty();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TRCG", meta = (ClampMin = 0, ClampMax = 20, UIMin = 0, UIMax = 20, ExposeOnSpawn))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TRCG", meta = (ExposeOnSpawn))
 	int Value = 0;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "TRCG")

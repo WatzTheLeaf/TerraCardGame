@@ -7,6 +7,7 @@
 #include "World/TrcgPlanetStat.h"
 #include "TrcgPlanetStatsManager.generated.h"
 
+class UTrcgLevelPlanetData;
 class UTrcgPlanetStat;
 
 UCLASS(Blueprintable)
@@ -26,6 +27,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="TRCG")
 	TMap<TSubclassOf<UTrcgPlanetStat>, int> Preview;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="TRCG", meta = (ExposeOnSpawn))
+	UTrcgLevelPlanetData* LevelPlanetData;
 
 	UFUNCTION(BlueprintPure, Category="TRCG")
 	UTrcgPlanetStat* GetStatFromClass(const TSubclassOf<UTrcgPlanetStat> Class);
