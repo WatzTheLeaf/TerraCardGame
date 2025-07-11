@@ -3,6 +3,7 @@
 
 #include "Manager/TrcgTileManager.h"
 
+#include "World/TrcgLevelPlanetData.h"
 #include "World/TrcgTile.h"
 
 
@@ -10,33 +11,48 @@
 ATrcgTileManager::ATrcgTileManager()
 {
 	PrimaryActorTick.bCanEverTick = false;
+	LevelPlanetData = nullptr;
 }
 
-void ATrcgTileManager::GenerateGrid(TSet<FGameplayTag> DefaultTags)
+void ATrcgTileManager::GenerateGrid()
 {
-	if (IsValid(TileClass))
+	if (!IsValid(TileClass) || !LevelPlanetData) return;
+
+	if (LevelPlanetData->BaseTiles.Num() == 0) return;
+	
+	TArray<FGameplayTag> WeightedTags;
+	for (const TPair<FGameplayTag, int32>& Pair : LevelPlanetData->BaseTiles)
 	{
-		for (int i = 0; i < GridXSize; ++i)
+		for (int32 i = 0; i < Pair.Value; ++i)
 		{
-			for (int j = 0; j < GridYSize; ++j)
+			WeightedTags.Add(Pair.Key);
+		}
+	}
+
+	for (int i = 0; i < GridXSize; ++i)
+	{
+		for (int j = 0; j < GridYSize; ++j)
+		{
+			FVector Location = FVector(173.2f * i, 150.f * j, 0.f);
+			if (j % 2 == 0)
 			{
-				FVector Location = FVector(173.2 * i, 150 * j, 0);
-				if (j % 2 == 0)
-				{
-					Location += FVector(86.6, 0, 0);
-				}
-				ATrcgTile* Tile = static_cast<ATrcgTile*>(GetWorld()->SpawnActor(TileClass));
-				Tile->SetActorLocation(Location);
-				Tile->Coords = {i, j};
-				for (FGameplayTag Tag : DefaultTags)
-				{
-					Tile->TileTags.AddTag(Tag);
-				}
-				Tiles.Add(Tile);
+				Location += FVector(86.6f, 0.f, 0.f);
 			}
+
+			ATrcgTile* Tile = Cast<ATrcgTile>(GetWorld()->SpawnActor(TileClass));
+			if (!Tile) continue;
+
+			Tile->SetActorLocation(Location);
+			Tile->Coords = {i, j};
+			
+			const int32 RandIndex = FMath::RandRange(0, WeightedTags.Num() - 1);
+			Tile->TileTags.AddTag(WeightedTags[RandIndex]);
+			
+			Tiles.Add(Tile);
 		}
 	}
 }
+
 
 ATrcgTile* ATrcgTileManager::GetTileAtIndex(const int32 Index) const
 {

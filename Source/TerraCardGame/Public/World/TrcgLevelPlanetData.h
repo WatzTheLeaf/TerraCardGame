@@ -6,6 +6,7 @@
 #include "Engine/DataAsset.h"
 #include "TrcgLevelPlanetData.generated.h"
 
+struct FGameplayTag;
 class UTrcgPlanetStat;
 /**
  * 
@@ -25,4 +26,10 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FName LevelPlanetName;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (ClampMin = 1, ClampMax = 100))
+	TMap<FGameplayTag, int> BaseTiles;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool CheckForCompletion = true;
 };

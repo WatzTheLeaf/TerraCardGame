@@ -6,6 +6,7 @@
 #include "General/TrcgActor.h"
 #include "TrcgTileManager.generated.h"
 
+class UTrcgLevelPlanetData;
 struct FGameplayTag;
 class ATrcgTile;
 
@@ -19,7 +20,7 @@ public:
 	ATrcgTileManager();
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
-	void GenerateGrid(TSet<FGameplayTag> DefaultTags);
+	void GenerateGrid();
 
 	UFUNCTION(BlueprintCallable, Category = "TRCG")
 	ATrcgTile* GetTileAtIndex(const int32 Index) const;
@@ -38,6 +39,9 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<ATrcgTile> TileClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="TRCG", meta = (ExposeOnSpawn))
+	UTrcgLevelPlanetData* LevelPlanetData;
 
 	UFUNCTION(BlueprintPure, Category = "TRCG")
 	bool HasNeighbourTilesWithTileTag(const int32 Index, const FGameplayTag Tag);
