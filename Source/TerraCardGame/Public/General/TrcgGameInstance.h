@@ -6,6 +6,7 @@
 #include "Engine/GameInstance.h"
 #include "TrcgGameInstance.generated.h"
 
+class UTrcgLevelPlanetData;
 class UTrcgCardData;
 class ATrcgPlanetStatsManager;
 class ATrcgTileManager;
@@ -33,6 +34,9 @@ public:
 
 	UPROPERTY(Category = "TRCG", BlueprintReadWrite, EditDefaultsOnly)
 	int GlobalDeckMaxSize;
+
+	UPROPERTY(EditAnywhere, Category = "TRCG", BlueprintReadWrite)
+	UTrcgLevelPlanetData* CurrentLevelData;
 
 	UFUNCTION(BlueprintCallable)
 	int GetGlobalDeckSize();

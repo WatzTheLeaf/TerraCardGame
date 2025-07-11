@@ -40,9 +40,6 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<ATrcgTile> TileClass;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="TRCG", meta = (ExposeOnSpawn))
-	UTrcgLevelPlanetData* LevelPlanetData;
-
 	UFUNCTION(BlueprintPure, Category = "TRCG")
 	bool HasNeighbourTilesWithTileTag(const int32 Index, const FGameplayTag Tag);
 

@@ -3,6 +3,7 @@
 
 #include "Manager/TrcgTileManager.h"
 
+#include "General/TrcgGameInstance.h"
 #include "World/TrcgLevelPlanetData.h"
 #include "World/TrcgTile.h"
 
@@ -11,11 +12,12 @@
 ATrcgTileManager::ATrcgTileManager()
 {
 	PrimaryActorTick.bCanEverTick = false;
-	LevelPlanetData = nullptr;
 }
 
 void ATrcgTileManager::GenerateGrid()
 {
+	UTrcgLevelPlanetData* LevelPlanetData = GetTrcgGameInstance()->CurrentLevelData;
+		
 	if (!IsValid(TileClass) || !LevelPlanetData) return;
 
 	if (LevelPlanetData->BaseTiles.Num() == 0) return;
