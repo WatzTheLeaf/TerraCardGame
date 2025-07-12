@@ -17,4 +17,10 @@ class TERRACARDGAME_API ATrcgGameMode : public AGameModeBase
 
 	UFUNCTION(BlueprintPure, meta=(CompactNodeTitle = "TRCG Instance", Category="TRCG"))
 	UTrcgGameInstance* GetTrcgGameInstance() const;
+
+public :
+	UFUNCTION(BlueprintImplementableEvent)
+	void InitGamemodeDispatchers();
+	
+	virtual void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
 };

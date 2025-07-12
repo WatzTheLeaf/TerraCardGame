@@ -12,3 +12,9 @@ UTrcgGameInstance* ATrcgGameMode::GetTrcgGameInstance() const
 	check(GI);
 	return GI;
 }
+
+void ATrcgGameMode::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
+{
+	InitGamemodeDispatchers();
+	Super::InitGame(MapName, Options, ErrorMessage);
+}

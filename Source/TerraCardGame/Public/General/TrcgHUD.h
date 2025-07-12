@@ -26,4 +26,6 @@ public:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "TRCG")
 	TArray<UTrcgUserWidget*> ActiveWidgets;
+
+	
 };
